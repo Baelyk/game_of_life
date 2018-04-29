@@ -4,10 +4,17 @@ use std::fmt;
 use piston_window::*;
 use piston_window::grid::Grid;
 
+/// Pixels in a cell
 const CELL_SIZE: u32 = 5;
+
+/// Cells in the grid
 const GRID_SIZE: u32 = 100;
-const GRID_RADIUS: f64 = CELL_SIZE as f64 / 20.0; // The radius of the grid lines
-const CELL_OFFSET: f64 = CELL_SIZE as f64 / 40.0; // The offset of the cell from the grid lines
+
+/// The radius of the grid lines
+const GRID_RADIUS: f64 = CELL_SIZE as f64 / 20.0;
+
+/// The offset of the cell from the grid lines
+const CELL_OFFSET: f64 = CELL_SIZE as f64 / 40.0;
 
 #[derive(Copy, Clone)]
 struct Cell {
@@ -52,6 +59,7 @@ impl Cell {
     }
 }
 
+/// game is a function that handles the Game of Life logic
 fn game (cells: [[Cell; GRID_SIZE as usize]; GRID_SIZE as usize]) -> [[Cell; GRID_SIZE as usize]; GRID_SIZE as usize] {
     /*
     1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
