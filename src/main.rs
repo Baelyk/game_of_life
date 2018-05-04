@@ -173,6 +173,7 @@ fn main() {
             if ups > 1 { ups -= 1; }
             window.events.set_ups(ups);
         }
+        #[allow(unused_variables)] // `time` isn't used
         event.update(|time| {
             if update {
                 window.draw_2d(&event, |c, g| {
